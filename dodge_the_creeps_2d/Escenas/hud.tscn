@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://de21pwojxlxg2"]
+[gd_scene load_steps=6 format=3 uid="uid://de21pwojxlxg2"]
 
+[ext_resource type="Script" uid="uid://cutvcc4h2nu1g" path="res://Scrips/hud.gd" id="1_5x6hg"]
 [ext_resource type="FontFile" uid="uid://73ld6olhik37" path="res://Fuente/Xolonium-Regular.ttf" id="1_37p78"]
 [ext_resource type="AudioStream" uid="uid://b3l85vewviy8w" path="res://Musica/SonidoInicio.wav" id="3_8sq4i"]
 
@@ -10,6 +11,7 @@ action = &"start_game"
 events = [SubResource("InputEventAction_64ctp")]
 
 [node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_5x6hg")
 
 [node name="ScoreLabel" type="Label" parent="."]
 anchors_preset = 5

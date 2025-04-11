@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://dprjlvsnpulac"]
+[gd_scene load_steps=10 format=4 uid="uid://dprjlvsnpulac"]
 
 [ext_resource type="Script" uid="uid://bxl5eug11qg1u" path="res://Scrips/main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://btjreniaumt7x" path="res://Escenas/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bil5ca66crvb5" path="res://Escenas/mob.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://bmx118k3qi1l3" path="res://Paisaje/Espacio.png" id="3_7mycd"]
+[ext_resource type="PackedScene" uid="uid://de21pwojxlxg2" path="res://Escenas/hud.tscn" id="5_crgrh"]
 [ext_resource type="AudioStream" uid="uid://bqo6untx6clnh" path="res://Musica/gameover.wav" id="7_5vw27"]
 
 [sub_resource type="Curve2D" id="Curve2D_ig7tw"]
@@ -52,17 +53,7 @@ curve = SubResource("Curve2D_ig7tw")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 
-[node name="HUD" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-script = null
+[node name="HUD" parent="." instance=ExtResource("5_crgrh")]
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamOggVorbis_7mycd")
@@ -76,3 +67,4 @@ volume_db = 8.0
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="star_game" from="HUD" to="." method="_new_game"]
